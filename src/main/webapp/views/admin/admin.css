@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+body {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+  color:#101010
+}
+
+#title{
+    letter-spacing: .125em;
+}
+
+#text {
+    font-size: 1.3em;
+}
+
+nav a {
+    color: #101010 !important;
+}
+
+.nav-link:hover {
+    color: #54f !important;
+}
+
+.navbar-toggler-icon {
+    color: #101010 !important;
+}
+
+.navbar-brand {
+    font-family: 'MedievalSharp', cursive;
+    font-size: 2em;
+    letter-spacing: 0.2em;
+}
+
+table {
+    box-shadow: 10px 13px 46px 15px rgba(138,120,120,0.62);
+    -webkit-box-shadow: 10px 13px 46px 15px rgba(138,120,120,0.62);
+    -moz-box-shadow: 10px 13px 46px 15px rgba(138,120,120,0.62);
+  
+}

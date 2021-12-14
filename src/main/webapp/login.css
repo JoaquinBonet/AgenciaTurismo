@@ -1,0 +1,76 @@
+@charset "ISO-8859-1";
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 50%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(0, 93, 133, 1) 0%, rgba(0, 181, 149, 1) 90%);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center !important;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2em;
+}
+
+p {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+main {
+    height: 50%;
+  
+}
+
+div {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10%;
+    margin: auto auto;
+    box-shadow: 20px 20px 20px 18px rgba(0, 0, 0, 0.1), 20px 20px 20px 18px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+    border-radius: 7%;
+}
+
+button {
+    margin: 5%;
+}
+
+input[type=text] {
+    background: transparent !important;
+    border-top: 1px solid #555 !important;
+    outline: none !important;
+    transition: color 0.3s, background 0.3s !important;
+    color:#000 !important;
+    margin-bottom:.8em
+    
+}
+form{
+	display:flex;
+	flex-flow: row wrap;
+	justify-content:center;
+	align-items:center;
+}
+
+input[type="text"]:hover{
+    background:#bbb !important;
+    color: #777 !important;
+}
+
+input[type="text"]::placeholder{
+    color:#333 !important;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}

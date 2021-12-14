@@ -1,0 +1,87 @@
+@charset "ISO-8859-1";
+body {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(0, 93, 133, 1) 0%, rgba(0, 181, 149, 1) 90%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+
+   
+}
+
+main{
+	margin-bottom: 10em;
+}
+
+.dropdown-menu{
+	background:#444;
+	color: #fff;
+	
+}
+
+#logIn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#title{
+    letter-spacing: .125em;
+}
+
+#text {
+    font-size: 1.3em;
+}
+
+nav a {
+    color: #cdc !important;
+}
+
+.nav-link:hover {
+    color: #101010 !important;
+}
+
+.navbar-toggler-icon {
+    color: #cdc !important;
+}
+
+.navbar-brand {
+    font-family: 'MedievalSharp', cursive;
+    font-size: 2em;
+    letter-spacing: 0.2em;
+}
+
+table {
+    box-shadow: 10px 13px 46px 15px rgba(138,120,120,0.62);
+    -webkit-box-shadow: 10px 13px 46px 15px rgba(138,120,120,0.62);
+    -moz-box-shadow: 10px 13px 46px 15px rgba(138,120,120,0.62);
+ 
+}
+
+.table-responsive {
+    max-height:600px;
+    z-index:100;
+}
+
+footer {
+
+  width: 100%;
+  height: 4.5rem; 
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 1300px){
+    footer {
+        margin-top: 3em;
+        position: relative;
+        top: auto;
+        left: auto;
+        height: auto;
+    }
+}

@@ -1,0 +1,125 @@
+DROP TABLE IF EXISTS ATRACCIONES;
+CREATE TABLE "ATRACCIONES" (
+	"id_atraccion"	INTEGER NOT NULL,
+	"id_tipo_producto"	INTEGER NOT NULL,
+	"nombre"	TEXT NOT NULL UNIQUE,
+	"cupo"	INTEGER NOT NULL,
+	"costo"	INTEGER NOT NULL,
+	"tiempo"	REAL NOT NULL,
+	"id_tipo_atraccion"	INTEGER NOT NULL,
+	"info" TEXT,
+	FOREIGN KEY("id_tipo_producto") REFERENCES "TIPOPRODUCTO"("id_tipo_producto"),
+	FOREIGN KEY("id_tipo_atraccion") REFERENCES "TIPODEATRACCION"("id_tipo_atraccion"),
+	FOREIGN KEY("id_atraccion") REFERENCES "ITINERARIO"("id_item"),
+	PRIMARY KEY("id_atraccion" AUTOINCREMENT)
+);
+
+INSERT INTO ATRACCIONES (id_tipo_producto, nombre, cupo, costo, tiempo, id_tipo_atraccion) VALUES 
+(1, "Moria", 6, 10, 2, 1, "Moria «Pozo Oscuro» es el nombre que reciben las más grandes minas construidas por los Enanos en la Tierra Media. También conocida como Khazad-dûm (mansion de los enanos), la Mina del Enano, fue durante mucho tiempo el símbolo del poderío del pueblo Enano, siendo un gran centro de comercio y minería a pesar de encontrarse algo alejada de otras minas enanas. Fue el más antiguo y famoso de los reinos de los enanos. Sin embargo, la prosperidad terminó cuando los Enanos excavaron demasiado hondo en busca de mithril, y despertaron a un antiguo Balrog que se encontraba en letargo en lo más profundo de la tierra. Los Enanos abandonaron entonces Khazad-dûm, y las minas se convirtieron en un lugar de oscuridad y miedo."),
+(1, "Minas Tirith", 25, 5, 2.5, 2, "Minas Tirith es la capital de Gondor en la tercera y Cuarta Edad del Sol de la Tierra Media. Originalmente conocida como Minas Anor (La torre del sol); reemplazó la a ciudad de Osgiliath (luego terminando como una ciudad en ruinas y una empalizada de Gondor) como la nueva capital de Gondor.
+
+
+Planos de Minas Tirith
+
+Cuando el enemigo comenzó a reagruparse, Minas Anor fue rebautizada como Minas Tirith, "la torre de guardia". La ciudad se llamó Ciudad Blanca, y el patio al frente de la ciudadela contenía el Árbol blanco. También se conoció como "La ciudad de los reyes" debido a su conexión entre estos y los gobernantes de Gondor."),
+(1, "La Comarca", 150, 3, 6.5, 3, "La Comarca (The Shire en inglés) es el nombre que recibe la región de la Tierra Media en la que viven los Hobbits, una raza emparentada con los Hombres que se asentó en esta zona a mediados de la Tercera Edad. Se encuentra en el centro de Eriador, cercana al Golfo de Lhûn, y formó parte durante mucho tiempo del reino de Arthedain. Desde el comienzo de la Cuarta Edad, la Comarca estuvo bajo la protección del Reino Unificado por orden del rey Elessar. Es conocida por ser el lugar donde nacieron los hobbits Bilbo Bolsón y Frodo Bolsón, que tuvieron gran importancia en la Guerra del Anillo."),
+(1, "Mordor", 4, 25, 3, 1, "Mordor es un país situado al sureste de la Tierra Media, que tuvo gran importancia durante la Guerra del Anillo por ser el lugar donde Sauron, el Señor Oscuro, decidió edificar su fortaleza de Barad-dûr para intentar atacar y dominar a todos los pueblos de la Tierra Media. Se trata de una región desolada, rodeada de montañas con un interior desértico sin vegetación."),
+(1, "Abismo de Helm", 15, 5, 2, 2, "El Abismo de Helm era un desfiladero que se abría paso entre las Ered Nimrais bajo el Thrihyrne. El Abismo de Helm era el centro defensivo del Folde Oeste de Rohan; éste y El Sagrario eran las principales fortalezas y refugios del reino. La Corriente del Bajo salía del Abismo de Helm, y allí se hallaban las Aglarond. El Muro del Bajo se levantó para cerrar la entrada al Abismo."),
+(1, "Lothlórien", 30, 35, 1, 3, "Lothlórien es un bosque localizado en la Tierra Media cerca de las bajas Montañas Nubladas. Fue el primer asentamiento de los elfos de Nandor, pero posteriormente lo enriqueció la migración de elfos Noldor y Sindar que los gobernaron y les ayudaron a crecer, Celeborn de Doriath y Galadriel, hija de Finarfin."),
+(1, "Erebor", 32, 12, 3, 2, "La Montaña Solitaria o Erebor es una montaña al noreste de Rhovanion, al sur de las Montañas Grises, entre elBosque Negro y las Colinas de Hierro. Es también la fuente del Río Rápido (Celduin). En el año 1999 fue colonizada por el rey enano Thráin I y se la conoció como el Reino bajo la Montaña. Durante más de siete siglos en la Tierra Media fue habitada por los enanos del Linaje de Durin o Barbaslargas haciéndose rico y poderoso hasta la segunda mitad de la Tercera Edad, cuando durante el reinado del rey Thror fueron derrotados y expulsados por el dragón Smaug."),
+(1, "Bosque Negro", 12, 3, 4, 1, "El Bosque Negro (Mirkwood en inglés), también llamado Taur-nu-Fuin o Taur-e-Ndadelos, fue un enorme bosque situado en Rhovanion, al nordeste de la Tierra Media. Conocido anteriormente como el Gran Bosque Verde, desde la construcción de la fortaleza de Dol Guldur por parte de Sauron, una gran sombra se cernió sobre el bosque, pasando a llamarse Bosque Negro.");
+
+
+DROP TABLE IF EXISTS ATRACCIONES_DE_PROMOS;
+CREATE TABLE "ATRACCIONES_DE_PROMOS" (
+	"id_promo"	INTEGER NOT NULL,
+	"id_atraccion"	INTEGER NOT NULL,
+	FOREIGN KEY("id_atraccion") REFERENCES "ATRACCIONES"("id_atraccion")
+);
+
+INSERT INTO ATRACCIONES_DE_PROMOS (id_promo, id_atraccion) VALUES
+(2, 6),
+(2, 3),
+(3, 2),
+(3, 5),
+(3, 7),
+(1, 4),
+(1, 8);
+
+DROP TABLE IF EXISTS ITINERARIO;
+CREATE TABLE "ITINERARIO" (
+	"id_itinerario"	INTEGER NOT NULL,
+	"id_usuario"	INTEGER NOT NULL,
+	"id_tipo_producto"	INTEGER NOT NULL,
+	"id_item"	INTEGER NOT NULL,
+	FOREIGN KEY("id_tipo_producto") REFERENCES "TIPOPRODUCTO"("id_tipo_producto"),
+	FOREIGN KEY("id_usuario") REFERENCES "USUARIO"("id_usuario"),
+	PRIMARY KEY("id_itinerario" AUTOINCREMENT)
+);
+
+
+DROP TABLE IF EXISTS PROMOCIONES;
+CREATE TABLE "PROMOCIONES" (
+	"id_promo"	INTEGER NOT NULL,
+	"id_tipo_producto"	INTEGER NOT NULL,
+	"tipo_promo"	TEXT NOT NULL,
+	"nombre"	TEXT NOT NULL,
+	"id_tipo_atraccion"	INTEGER NOT NULL,
+	"descuento"	INTEGER,
+	"precio"	INTEGER,
+	"info" TEXT,
+	FOREIGN KEY("id_tipo_atraccion") REFERENCES "TIPODEATRACCION"("id_tipo_atraccion"),
+	FOREIGN KEY("id_promo") REFERENCES "ITINERARIO"("id_item"),
+	FOREIGN KEY("id_tipo_producto") REFERENCES "TIPOPRODUCTO"("id_tipo_producto"),
+	PRIMARY KEY("id_promo")
+);
+
+INSERT INTO PROMOCIONES (id_tipo_producto, tipo_promo, nombre, id_tipo_atraccion, descuento, precio) VALUES
+(2, "PromocionPorcentual", "PackAventura", 1, 20, 0, "Esta promoción incluye atracciones del tipo "Aventura", prepárese para enfrentar las aventuras mas desafiantes de la Tierra Media por un costo totalmente conveniente."),
+(2, "PromocionAbsoluta", "PackDegustacion", 2, 0, 36, "Esta promoción incluye atracciones del tipo "Degustación",  deléitese con los banquetes más impresionantes y las comidas más exóticas de la Tierra Media."),
+(2, "PromocionAxB", "PackPaisaje", 3, 0, 0, "Esta promoción incluye atracciones del tipo "Paisaje",  visite las atracciones con las mejores vistas de la Tierra Media.");
+
+
+DROP TABLE IF EXISTS TIPODEATRACCION;
+CREATE TABLE "TIPODEATRACCION" (
+	"id_tipo_atraccion"	INTEGER NOT NULL,
+	"tipo_atraccion"	TEXT NOT NULL,
+	PRIMARY KEY("id_tipo_atraccion" AUTOINCREMENT)
+);
+
+INSERT INTO TIPODEATRACCION (tipo_atraccion) VALUES
+("AVENTURA"),
+("PAISAJE"),
+("DEGUSTACION");
+
+
+DROP TABLE IF EXISTS TIPOPRODUCTO;
+CREATE TABLE "TIPOPRODUCTO" (
+	"id_tipo_producto"	INTEGER NOT NULL,
+	"tipo_producto"	TEXT NOT NULL,
+	PRIMARY KEY("id_tipo_producto" AUTOINCREMENT)
+);
+
+INSERT INTO TIPOPRODUCTO (tipo_producto) VALUES
+("ATRACCION"),
+("PROMOCION");
+
+
+DROP TABLE IF EXISTS USUARIO;
+CREATE TABLE "USUARIO" (
+	"id_usuario"	INTEGER NOT NULL,
+	"nombre"	TEXT NOT NULL,
+	"id_tipo_atraccion"	INTEGER NOT NULL,
+	"tiempo"	REAL NOT NULL,
+	"presupuesto"	INTEGER NOT NULL,
+	"is_admin" INTEGER,
+	PRIMARY KEY("id_usuario" AUTOINCREMENT),
+	FOREIGN KEY("id_tipo_atraccion") REFERENCES "TIPODEATRACCION"("id_tipo_atraccion")
+);
+
+INSERT INTO USUARIO (nombre, id_tipo_atraccion, tiempo, presupuesto) VALUES 
+("Eowyn", 1, 8.0, 10, 0),
+("Gandalf", 2, 5.0, 100, 0),
+("Sam", 3, 8.0, 36, 0),
+("Galadriel", 1, 6.0, 120, 0);
+("admin", 1000, 1000, 1000, 1);

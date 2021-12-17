@@ -5,6 +5,7 @@
 
 
 <head>
+
 <jsp:include page="/partials/head.jsp"></jsp:include>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"

@@ -1,4 +1,4 @@
-package filters;
+/*package filters;
 
 import java.io.IOException;
 
@@ -20,3 +20,4 @@ public class JspFilter implements Filter {
        dispatcher.forward(request,response);
     }
 }
+*/

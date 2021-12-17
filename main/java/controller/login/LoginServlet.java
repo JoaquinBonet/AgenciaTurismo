@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Usuario;
 import services.LoginService;
 
-@WebServlet("/login")
+@WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = 2394449831904434113L;

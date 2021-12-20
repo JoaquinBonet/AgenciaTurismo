@@ -83,10 +83,8 @@ public class Usuario {
 	}
 
 	public void agregarAlItinerario(Producto producto) {
-		System.out.println(producto);
+		
 		this.itinerario.getProductosItinerario().add(producto);
-		System.out.println("entró");
-		System.out.println(this.getItinerario().getProductosItinerario());
 		this.presupuesto -= producto.getCosto();
 		this.tiempoDisponible -= producto.getDuracion();
 	}

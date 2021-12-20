@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/login.css">
 <title>Turismo en Tierra Media</title>
 </head>
 
@@ -43,9 +43,11 @@
 				<%
 				}
 				%>
+				
+				
 			
 			<p>Bienvenido a la agencia de turismo oficial de Tierra Media</p>
-			<form action="login" method="post">
+			<form action="<%= request.getContextPath() %>/login" method="post">
 				<label for="formGroupExampleInput" class="form-label justify-content-center"><i>Ingrese
 						su nombre de usuario</i> </label>
 						 <input type="text" class="form-control"

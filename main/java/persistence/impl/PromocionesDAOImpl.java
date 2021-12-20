@@ -369,7 +369,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 			Connection conn = ConnectionProvider.getConnection();
 			
 			int id = pDao.findIdByNombrePromocion(nombrePromo);
-			System.out.println(id + "****");
+			
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, id);
 			int rows = statement.executeUpdate();

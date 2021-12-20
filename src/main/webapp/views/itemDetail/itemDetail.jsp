@@ -6,7 +6,8 @@
 
 <head>
 <jsp:include page="/partials/head.jsp"></jsp:include>
-<link rel="stylesheet" href="itemDetail.css">
+
+<link rel="stylesheet" href="<%= request.getContextPath() %>/itemDetail.css">
 </head>
 
 <body>
